@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello!</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #hello {
+      font-size: 40px;
+      margin-bottom: 20px;
+      transition: font-size 0.1s ease;
+    }
+    input[type="range"] {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div id="hello">Hello</div>
+  <input type="range" id="slider" min="10" max="200" value="40">
+
+  <script>
+    const hello = document.getElementById('hello');
+    const slider = document.getElementById('slider');
+
+    slider.addEventListener('input', () => {
+      hello.style.fontSize = slider.value + 'px';
+    });
+  </script>
+</body>
+</html>
