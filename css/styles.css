@@ -19,6 +19,19 @@ body{
   overflow:hidden;
 }
 
+/* minimize, maximize, and close buttons. I like the mac ones so I chose those but put it on the side where it would be on windows.
+   I'm not adding hover effects because I don't want it to seem like its clickable*/
+.windots{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 0 8px 12px 8px; 
+}
+.dot{ width:13px; height:12px; border-radius:50%;}
+.dot.red{ background:#ff5f57; } 
+.dot.yellow{ background:#febc2e; }
+.dot.green{ background:#28c840; }
+
 /* instead of using the table of contents, I decided im going to use tabs to match the feel of a web browser */
 .tabs{
   display: grid;
@@ -53,20 +66,6 @@ body{
   z-index: 3;
 }
 
-/* minimize, maximize, and close buttons. I like the mac ones so I chose those but put it on the side where it would be on windows.
-   I'm not adding hover effects because I don't want it to seem like its clickable*/
-.windots{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding: 0 8px 12px 8px; 
-}
-.dot{ width:13px; height:12px; border-radius:50%;}
-.dot.red{ background:#ff5f57; } 
-.dot.yellow{ background:#febc2e; }
-.dot.green{ background:#28c840; }
-
-
 .toolbar{
   display:flex;
   align-items:center;
@@ -90,6 +89,28 @@ body{
   background:#e5e7eb; 
   border-radius:999px; padding:.2rem .8rem
 }
+
+/* for the putting the images and text side by side */
+.images {
+  display: flex;
+  align-items: stretch;
+  margin: 1rem 0;
+}
+
+.images img {
+  max-width: 45%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.images ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.2rem;
+  flex: 1;   
+}
+
+/* main content of page */
 
 main{ padding: 1rem 1.25rem 1.5rem; }
 h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
