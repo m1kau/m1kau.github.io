@@ -1,39 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hello! Assignment 0</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    #hello {
-      font-size: 40px;
-      margin-bottom: 20px;
-      transition: font-size 0.1s ease;
-    }
-    input[type="range"] {
-      width: 300px;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The History and Evolution of Web Browsers</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>History and Evolution of Web Browsers - Project 1 Milestone</header>
+  <div class="browser">
 
-  <div id="hello">test!</div>
+   <!-- instead of using the table of contents, I decided im going to use tabs to match the feel of a web browser as a little gimmick -->
+    <div class="tabs">
+      <a class="tab active" href="index.html">Home</a>
+      <a class="tab" href="early.html">Early Browsers</a>
+      <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
+      <a class="tab" href="concepts.html">Key Concepts</a>
+      <a class="tab" href="references.html">References</a>
+      <a class="tab" href="about.html">About</a>
+
+      <div class="windots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+    </div>
+
+   <!-- I'm thinking of using these buttons to navigate the site aswell, but I will leave that for other milestones -->
+    <div class="toolbar">
+      <button class="buttons">←</button>
+      <button class="buttons">→</button> 
+      <button class="buttons">⟳</button>
+
+      <div class="searchbox">
+        <p>
+          home
+		</p>
+      </div>
+    </div>
+
+    <main id="main">
+      <h1>The History and Evolution of Web Browsers</h1>
+        <p>
+          People often overlook web browsers, but they are one of the most important tools for using the internet. 
+		  Browsers started out as simple programs that only showed text and links, but they grew into complex platforms 
+		  that power almost everything we do online. This site shows how they developed, beginning with Tim Berners-Lee’s 
+		  first browser at CERN, followed by Mosaic making the web easier to use, and Netscape pushing new ideas like JavaScript. 
+		  It also covers the browser wars when Internet Explorer took over, the rise of Firefox and Safari, and the release of Chrome that 
+		  reshaped the market. Today browsers are not just page viewers, they run advanced apps, protect privacy, and continue 
+		  to decide how people reach the web.
+        </p>
+
+        <h1>Key Terms</h1>
+          <p><strong>URL</strong> - the address of a resource on the web.</p>
+          <p><strong>HTML</strong> - markup language that structures pages.</p>
+          <p><strong>CSS</strong> - styles that control layout, color, and type.</p>
+          <p><strong>JavaScript</strong> - code that makes pages interactive.</p>
+          <p><strong>Rendering engine</strong> - turns HTML/CSS into pixels.</p>
+    </main>
+
+    <footer>
+      <p>This is my project 1 milestone for IT 3203. <a href="https://ksuweb.github.io/IT3203/">Course site
+    </footer>
+  </div>
 </body>
 </html>
