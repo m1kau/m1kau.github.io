@@ -1,0 +1,105 @@
+
+/* Since my assignment 1 topic is about web browsers, I thought it would fit if I made the website look like its a browser.*/
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.55;
+  background:#e5e7eb;
+}
+
+.browser{
+  width: 98%;
+  max-width: 1400px;
+  margin: 30px auto;
+  background:#fff;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+/* instead of using the table of contents, I decided im going to use tabs to match the feel of a web browser */
+.tabs{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr) auto;
+  column-gap: 4px;
+  align-items: end;
+  padding: 6px 6px 0 6px; 
+  background:#e5e7eb;
+}
+
+/* Using z index to be able to have the toolbar border go around the active tab */
+
+.tab{
+  padding: 8px 8px;
+  background:#e5e7eb;
+  color:#111827;
+  text-decoration:none;
+  font-weight:700;
+  font-size: 0.90rem;       
+  border-radius:10px 10px 0 0;
+  white-space:nowrap; /*this fixed the issue of tabs being different heights when the window is a different size*/
+  overflow:hidden;
+  position: relative;
+  z-index: 2;
+}
+.tab:hover{ background:#f9f9f9; }
+.tab.active{
+  background:#f9f9f9;
+  border: 1px solid #d1d5db;
+  border-bottom: none;
+  margin-bottom: -1px;  
+  z-index: 3;
+}
+
+/* minimize, maximize, and close buttons. I like the mac ones so I chose those but put it on the side where it would be on windows.
+   I'm not adding hover effects because I don't want it to seem like its clickable*/
+.windots{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 0 8px 12px 8px; 
+}
+.dot{ width:13px; height:12px; border-radius:50%;}
+.dot.red{ background:#ff5f57; } 
+.dot.yellow{ background:#febc2e; }
+.dot.green{ background:#28c840; }
+
+
+.toolbar{
+  display:flex;
+  align-items:center;
+  gap:.2rem;
+  padding:.6rem;
+  background:#f9f9f9;
+  border-top:1px solid #d1d5db;
+  border-bottom:1px solid #d1d5db;
+  position: relative;
+  z-index: 1; 
+}
+.buttons{
+  width:25px; height:25px;
+  border:1px solid #d1d5db; border-radius:8px;
+  background:#fff; color:#111;
+}
+.searchbox{
+  flex: 1; display:flex; 
+  align-items: center;
+  height:25px;
+  background:#e5e7eb; 
+  border-radius:999px; padding:.2rem .8rem
+}
+
+main{ padding: 1rem 1.25rem 1.5rem; }
+h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
+
+footer{
+  border-top:1px solid #d1d5db;
+  padding: 0rem 1rem;
+  background:#fff;
+  color:#6b7280;
+  font-size:.95rem;
+}
+footer a{ color:#0000ff; text-decoration:none;}
+footer a:hover{ text-decoration:underline; }
