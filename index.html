@@ -8,58 +8,72 @@
 </head>
 <body>
   <div class="browser">
+    <!--This nav section acts like my fake browser top bar-->
+    <nav>
+      <div class="tabs">
+        <!--Navigation tabs for different pages-->
+        <a class="tab active" href="index.html">Home</a>
+        <a class="tab" href="early.html">Early Browsers</a>
+        <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
+        <a class="tab" href="concepts.html">Key Concepts</a>
+        <a class="tab" href="references.html">References</a>
+        <a class="tab" href="about.html">About</a>
 
-   <!-- instead of using the table of contents, I decided im going to use tabs to match the feel of a web browser as a little gimmick -->
-    <div class="tabs">
-      <a class="tab active" href="index.html">Home</a>
-      <a class="tab" href="early.html">Early Browsers</a>
-      <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
-      <a class="tab" href="concepts.html">Key Concepts</a>
-      <a class="tab" href="references.html">References</a>
-      <a class="tab" href="about.html">About</a>
+        <!--Dropdown menu for mobile view-->
+        <div class="tab-dropdown">
+          <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="early.html">Early Browsers</a></li>
+            <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
 
-      <div class="windots">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
+        <!--Little colored dots to make it look like a Mac browser window-->
+        <div class="windots">
+          <span class="dot green"></span>
+          <span class="dot yellow"></span>
+          <span class="dot red"></span>
+        </div>
       </div>
-    </div>
 
-   <!-- I'm thinking of using these buttons to navigate the site aswell, but I will leave that for other milestones -->
-    <div class="toolbar">
-      <button class="buttons">←</button>
-      <button class="buttons">→</button> 
-      <button class="buttons">⟳</button>
-
-      <div class="searchbox">
-        <p>
-          home
-		</p>
+      <!--Toolbar section: fake back, forward, and reload buttons-->
+      <div class="toolbar">
+        <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
+        <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
+        <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
+        <!--Searchbox is just a placeholder here, not a real search-->
+        <div class="searchbox"><p>home</p></div>
       </div>
-    </div>
+    </nav>
 
+    <!--Main content-->
     <main id="main">
       <h1>The History and Evolution of Web Browsers</h1>
-        <p>
-          People often overlook web browsers, but they are one of the most important tools for using the internet. 
-		  Browsers started out as simple programs that only showed text and links, but they grew into complex platforms 
-		  that power almost everything we do online. This site shows how they developed, beginning with Tim Berners-Lee’s 
-		  first browser at CERN, followed by Mosaic making the web easier to use, and Netscape pushing new ideas like JavaScript. 
-		  It also covers the browser wars when Internet Explorer took over, the rise of Firefox and Safari, and the release of Chrome that 
-		  reshaped the market. Today browsers are not just page viewers, they run advanced apps, protect privacy, and continue 
-		  to decide how people reach the web.
-        </p>
+      <p>
+        People often overlook web browsers, but they are one of the most important tools for using the internet. 
+        Browsers started out as simple programs that only showed text and links, but they grew into complex platforms 
+        that power almost everything we do online. This site shows how they developed, beginning with Tim Berners-Lee’s 
+        first browser at CERN, followed by Mosaic making the web easier to use, and Netscape pushing new ideas like JavaScript. 
+        It also covers the browser wars when Internet Explorer took over, the rise of Firefox and Safari, and the release of Chrome that 
+        reshaped the market. Today browsers are not just page viewers, they run advanced apps, protect privacy, and continue 
+        to decide how people reach the web.
+      </p>
 
-        <h1>Key Terms</h1>
-          <p><strong>URL</strong> - the address of a resource on the web.</p>
-          <p><strong>HTML</strong> - markup language that structures pages.</p>
-          <p><strong>CSS</strong> - styles that control layout, color, and type.</p>
-          <p><strong>JavaScript</strong> - code that makes pages interactive.</p>
-          <p><strong>Rendering engine</strong> - turns HTML/CSS into pixels.</p>
+      <h1>Key Terms</h1>
+      <p><strong>URL</strong> - the address of a resource on the web.</p>
+      <p><strong>HTML</strong> - markup language that structures pages.</p>
+      <p><strong>CSS</strong> - styles that control layout, color, and type.</p>
+      <p><strong>JavaScript</strong> - code that makes pages interactive.</p>
+      <p><strong>Rendering engine</strong> - turns HTML/CSS into pixels.</p>
     </main>
 
+    <!--Footer-->
     <footer>
-      <p>This is my project 1 milestone for IT 3203. <a href="https://ksuweb.github.io/IT3203/">Course site
+      <p>This is my project 1 milestone for IT 3203. <a href="https://ksuweb.github.io/IT3203/">Course site</a></p>
     </footer>
   </div>
 </body>
