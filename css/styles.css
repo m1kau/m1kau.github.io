@@ -1,126 +1,292 @@
+:root{
+  /*My main color palette and effects stored as CSS variables*/
+  --ink: #111827;
+  --bg-app: #e5e7eb;
+  --bg-panel: #f9f9f9;
+  --border: #d1d5db;
+  --accent-red: #ff5f57;
+  --accent-yellow: #febc2e;
+  --accent-green: #28c840;
+  --shadow-outer: 0 6px 20px rgba(0,0,0,.10);
+  --shadow-img: 0 6px 20px rgba(0,0,0,.20);
+  --focus-ring: 0 0 0 3px rgba(37,99,235,.4);
+}
 
-/* Since my assignment 1 topic is about web browsers, I thought it would fit if I made the website look like its a browser.*/
+* { box-sizing: border-box; } /*Sizing fix so padding/borders don’t break layouts*/
 
-body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height:1.55;
-  background:#e5e7eb;
+body {
+  /*Body text and background*/
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  background: var(--bg-app);
 }
 
 .browser{
+  /*Main fake browser “window” wrapper*/
   width: 98%;
   max-width: 1400px;
   margin: 30px auto;
-  background:#fff;
-  border:1px solid #d1d5db;
-  border-radius:10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.08);
-  overflow:hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-outer);
+  overflow: hidden;
 }
 
-/* minimize, maximize, and close buttons. I like the mac ones so I chose those but put it on the side where it would be on windows.
-   I'm not adding hover effects because I don't want it to seem like its clickable*/
+/*Mac style traffic light dots row*/
 .windots{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding: 0 8px 12px 8px; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px 12px;
 }
-.dot{ width:13px; height:12px; border-radius:50%;}
-.dot.red{ background:#ff5f57; } 
-.dot.yellow{ background:#febc2e; }
-.dot.green{ background:#28c840; }
 
-/* instead of using the table of contents, I decided im going to use tabs to match the feel of a web browser */
+.dot{ 
+  width: 13px; 
+  height: 12px; 
+  border-radius: 50%;
+}
+.dot.red{ background: var(--accent-red); } 
+.dot.yellow{ background: var(--accent-yellow); }
+.dot.green{ background: var(--accent-green); }
+
+.windots .dot {
+  cursor: pointer;
+  transition: filter .15s ease, box-shadow .15s ease;
+}
+.windots .dot:hover { filter: brightness(1.1); }
+.windots .dot:active {
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.4);
+  filter: brightness(0.9);
+}
+
+/*Navigation tab bar at top*/
 .tabs{
   display: grid;
   grid-template-columns: repeat(6, 1fr) auto;
   column-gap: 4px;
   align-items: end;
-  padding: 6px 6px 0 6px; 
-  background:#e5e7eb;
+  padding: 6px 6px 0;
+  background: var(--bg-app);
 }
 
-/* Using z index to be able to have the toolbar border go around the active tab */
-
 .tab{
-  padding: 8px 8px;
-  background:#e5e7eb;
-  color:#111827;
-  text-decoration:none;
-  font-weight:700;
-  font-size: 0.90rem;       
-  border-radius:10px 10px 0 0;
-  white-space:nowrap; /*this fixed the issue of tabs being different heights when the window is a different size*/
-  overflow:hidden;
+  /*Each tab link style*/
+  padding: 8px;
+  background: var(--bg-app);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .90rem;
+  border-radius: 10px 10px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
   position: relative;
   z-index: 2;
 }
-.tab:hover{ background:#f9f9f9; }
+.tab:hover{ background: var(--bg-panel); }
 .tab.active{
-  background:#f9f9f9;
-  border: 1px solid #d1d5db;
-  border-bottom: none;
+  /*Makes the current tab look like it’s “on top”*/
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-bottom: 0;
   margin-bottom: -1px;  
   z-index: 3;
 }
 
+.tab-dropdown { display: none; } /*Dropdown only shows up on small screens*/
+
+/*Toolbar row with back, forward, reload, and fake search bar*/
 .toolbar{
-  display:flex;
-  align-items:center;
-  gap:.2rem;
-  padding:.6rem;
-  background:#f9f9f9;
-  border-top:1px solid #d1d5db;
-  border-bottom:1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem;
+  background: var(--bg-panel);
+  border-block: 1px solid var(--border);
   position: relative;
   z-index: 1; 
 }
+
 .buttons{
-  width:25px; height:25px;
-  border:1px solid #d1d5db; border-radius:8px;
-  background:#fff; color:#111;
-}
-.searchbox{
-  flex: 1; display:flex; 
+  /*Generic button style*/
+  width: 25px; 
+  height: 25px;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  display: inline-flex;
   align-items: center;
-  height:25px;
-  background:#e5e7eb; 
-  border-radius:999px; padding:.2rem .8rem
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .15s ease, box-shadow .15s ease, transform .05s ease;
 }
 
-/* for the putting the images and text side by side */
+.toolbar .buttons{
+  /*Specific size + round look for toolbar buttons*/
+  width: 28px; 
+  height: 28px;
+  border-radius: 9999px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+}
+.toolbar .buttons:hover{
+  background-color: var(--bg-app);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.02);
+}
+.toolbar .buttons:active{
+  background-color: var(--bg-panel);
+  transform: translateY(1px);
+}
+.toolbar .buttons:focus-visible{
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/*SVG icons for back/forward/reload      I was using text symbols, but they bugged me and looked off*/
+.btn--back{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 5l-7 7 7 7'/></svg>");}
+.btn--forward{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>");}
+.btn--reload{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12a9 9 0 1 1-2.64-6.36'/><path d='M21 3v6h-6'/></svg>");}
+
+/*Fake search/address bar*/
+.searchbox{
+  flex: 1;
+  display: flex; 
+  align-items: center;
+  height: 30px;
+  background: var(--bg-app);
+  border-radius: 999px; 
+  padding: .2rem .8rem;
+}
+
+/*Main content area styles*/
+main{ padding: 1rem 1.25rem 1.5rem; }
+h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
+
+/*Image and text section (I need to rework this completely. I am not happy with how everything turned out*/
 .images {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   margin: 1rem 0;
 }
-
 .images img {
-  max-width: 45%;
+  background: transparent;
+  max-width: 35%;
+  height: auto;
   border-radius: 8px;
-  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.10));
 }
-
 .images ul {
   display: flex;
   flex-direction: column;
   padding-left: 1.2rem;
-  flex: 1;   
+  flex: 1;
 }
 
-/* main content of page */
-
-main{ padding: 1rem 1.25rem 1.5rem; }
-h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
-
+/*Footer section*/
 footer{
-  border-top:1px solid #d1d5db;
-  padding: 0rem 1rem;
-  background:#fff;
-  color:#6b7280;
-  font-size:.95rem;
+  border-top: 1px solid var(--border);
+  padding: 0 1rem;
+  background: #fff;
+  color: #6b7280;
+  font-size: .95rem;
 }
-footer a{ color:#0000ff; text-decoration:none;}
-footer a:hover{ text-decoration:underline; }
+footer a{ color: #0000ff; text-decoration: none; }
+footer a:hover{ text-decoration: underline; }
+
+/*Responsive tweaks for mobile (small screens)*/
+@media (max-width: 640px) {
+
+  .tabs .tab { display: none; } /*Hide tabs by default*/
+  .tabs .tab.active { display: block; } /*Only show active tab*/
+
+  .tabs {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+  }
+  .windots { margin-left: auto; }
+
+  .tab-dropdown {
+    /*Show dropdown instead of full tab bar*/
+    display: inline-block;
+    position: relative;
+  }
+  .tabs .dropdown-tab {
+    /*Dropdown button look*/
+    display: inline-flex;
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    padding: 9px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    margin-bottom: -1px;  
+  }
+
+  .dropdown-menu {
+    /*Menu pops out on hover/tap*/
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-radius: 0 10px 10px 10px;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    min-width: 180px;
+    box-shadow: var(--shadow-outer);
+    z-index: 10;
+  }
+
+  .dropdown-menu li a {
+    /*Each link inside dropdown*/
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .dropdown-menu li a:hover { background: var(--bg-app); }
+
+  .tab-dropdown:hover .dropdown-menu,
+  .tab-dropdown:focus-within .dropdown-menu {
+    display: block;
+  }
+
+  .tabs .tab.active {
+    /*Keep active tab short on small screens*/
+    max-width: 70vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .images {
+    /*Stack image + text vertically on mobile*/
+    flex-direction: column;
+    align-items: center;
+    gap: 0.10rem;
+  }
+
+  .images img {
+    width: 100%;
+    max-width: 520px !important;
+    height: auto;
+    display: block;
+  }
+
+  .images ul {
+    padding-left: 0;
+    width: 100%;
+  }
+
+}
