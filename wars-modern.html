@@ -8,112 +8,119 @@
 </head>
 <body>
   <div class="browser">
-    <!--This nav section acts like my fake browser top bar-->
-    <nav>
-      <div class="tabs">
-        <!--Navigation tabs for different pages-->
-        <a class="tab" href="index.html">Home</a>
-        <a class="tab" href="early.html">Early Browsers</a>
-        <a class="tab active" href="wars-modern.html">Browser Wars & Modern</a>
-        <a class="tab" href="concepts.html">Key Concepts</a>
-        <a class="tab" href="references.html">References</a>
-        <a class="tab" href="about.html">About</a>
+    <header>
+      <!--This nav section acts like my fake browser top bar-->
+      <nav>
+        <div class="tabs">
+          <!--Navigation tabs for different pages-->
+          <a class="tab" href="index.html">Home</a>
+          <a class="tab" href="early.html">Early Browsers</a>
+          <a class="tab active" href="wars-modern.html">Browser Wars & Modern</a>
+          <a class="tab" href="concepts.html">Key Concepts</a>
+          <a class="tab" href="references.html">References</a>
+          <a class="tab" href="about.html">About</a>
 
-        <!--Dropdown menu for mobile view-->
-        <div class="tab-dropdown">
-          <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
-          <ul class="dropdown-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="early.html">Early Browsers</a></li>
-            <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
-            <li><a href="concepts.html">Key Concepts</a></li>
-            <li><a href="references.html">References</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
+          <!--Dropdown menu for mobile view-->
+          <div class="tab-dropdown">
+            <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="early.html">Early Browsers</a></li>
+              <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
+              <li><a href="concepts.html">Key Concepts</a></li>
+              <li><a href="references.html">References</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+
+          <!--Little colored dots to make it look like a Mac browser window-->
+          <div class="windots">
+            <span class="dot green"></span>
+            <span class="dot yellow"></span>
+            <span class="dot red"></span>
+          </div>
         </div>
 
-        <!--Little colored dots to make it look like a Mac browser window-->
-        <div class="windots">
-          <span class="dot green"></span>
-          <span class="dot yellow"></span>
-          <span class="dot red"></span>
+        <!--Toolbar section: fake back, forward, and reload buttons-->
+        <div class="toolbar" role="toolbar">
+          <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
+          <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
+          <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
+          <!--Searchbox is just a placeholder here, not a real search-->
+          <div class="searchbox"><p>https://m1kau.github.io/wars-modern.html</p></div>
         </div>
-      </div>
-
-      <!--Toolbar section: fake back, forward, and reload buttons-->
-      <div class="toolbar">
-        <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
-        <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
-        <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
-        <!--Searchbox is just a placeholder here, not a real search-->
-        <div class="searchbox"><p>https://m1kau.github.io/wars-modern.html</p></div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <!--Main content-->
     <main id="main">
       <h1>Browser Wars & Modern Era</h1>
 
-      <h1>Internet Explorer and Market Dominance</h1>
+      <h2>Internet Explorer and Market Dominance</h2>
         <div class="images">
-          <img src="css/images/ie.png" alt="Internet Explorer"/>
-            <ul>
+          <img src="css/images/ie.png" alt="Internet Explorer" style="max-width:10%; height:auto; display:block; margin:1rem auto;"/>
+            <div>
               <p>
                 Microsoft released Internet Explorer in 1995 and bundled it with Windows. By the year 2000,
-          Internet Explorer held more than 90% of the browser market. This move hurt Netscape's popularity
-          and brought Microsoft into legal trouble. The U.S. government sued Microsoft for abusing its
-          dominance, claiming it unfairly used Windows to force its browser on users.
+                Internet Explorer held more than 90% of the browser market. This move hurt Netscape's popularity
+                and brought Microsoft into legal trouble. The U.S. government sued Microsoft for abusing its
+                dominance, claiming it unfairly used Windows to force its browser on users.
               </p>
-            </ul>
+            </div>
         </div>
 
-      <h1>Antitrust Case</h1>
-        <p>
-          The antitrust lawsuit showed how powerful browsers had become. Emails revealed that Microsoft
-          actively tried to push Netscape out of the market. The court ruled that Microsoft acted unfairly,
-          and the case became an early example of how tech companies can misuse control.
-        </p>
-
-      <h1>Firefox and Safari</h1>
+      <h2>Antitrust Case</h2>
         <div class="images">
-          <img src="css/images/fns.png" alt="Firefox and Safari"/>
-            <ul>
+          <img src="css/images/m.png" alt="Microsoft" style="max-width:10%; height:auto; display:block; margin:1rem auto;"/>
+            <div>
+              <p>
+                The antitrust lawsuit showed how powerful browsers had become. Emails revealed that Microsoft
+                actively tried to push Netscape out of the market. The court ruled that Microsoft acted unfairly,
+                and the case became an early example of how tech companies can misuse control.
+              </p>
+            </div>
+        </div>
+
+      <h2>Firefox and Safari</h2>
+        <div class="images">
+          <img src="css/images/fns.png" alt="Firefox and Safari" style="max-width:10%; height:auto; display:block; margin:1rem auto;"/>
+            <div>
               <p>
                 As Internet Explorer slowed in development and became known for security issues, new browsers
                 appeared. Mozilla launched Firefox in 2004 with features like tabbed browsing, pop-up blocking,
                 and strong security. Apple released Safari in 2003 using its WebKit engine, making it the default
                 browser for Macs and later iPhones.
               </p>
-            </ul>
+            </div>
         </div>
 
-      <h1>Google Chrome</h1>
+      <h2>Google Chrome</h2>
         <div class="images">
-          <img src="css/images/c.png" alt="Chrome"/>
-            <ul>
+          <img src="css/images/c.png" alt="Chrome" style="max-width:10%; height:auto; display:block; margin:1rem auto;"/>
+            <div>
               <p>
                 In 2008 Google released Chrome. It ran quickly, looked simple, and felt safe. Chrome included a
                 V8 JavaScript engine and sandboxed tabs, so one crash would not affect the rest of the browser.
                 Google open-sourced Chrome as Chromium, and it quickly became the most popular browser worldwide
                 by the mid-2010s.
               </p>
-            </ul>
+            </div>
         </div>
 
-      <h1>Microsoft Edge and the Chromium Era</h1>
+      <h2>Microsoft Edge and the Chromium Era</h2>
         <div class="images">
-          <img src="css/images/enc.png" alt="Edge and Chromium"/>
-            <ul>
+          <img src="css/images/enc.png" alt="Edge and Chromium" style="max-width:10%; height:auto; display:block; margin:1rem auto;"/>
+            <div>
               <p>
                 Microsoft tried again with Edge in 2015, but switched to Chromium in 2019 after struggling with
                 its original version. Other browsers like Opera also moved to Chromium. Now most browsers share
                 Chromium, except Safari with WebKit and Firefox with Gecko. This raised concerns about one engine
                 controlling too much of the web.
               </p>
-            </ul>
+            </div>
         </div>
       <!--Table-->
-      <h1>Timeline of Key Events</h1>
+      <h2>Timeline of Key Events</h2>
       <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
         <tr>
           <th>Year</th>
