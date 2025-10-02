@@ -178,7 +178,7 @@ h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
   border-radius: 8px;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,.10));
 }
-.images ul {
+.images div {
   display: flex;
   flex-direction: column;
   padding-left: 1.2rem;
@@ -289,4 +289,11 @@ footer a:hover{ text-decoration: underline; }
     width: 100%;
   }
 
+}
+/*text stuff*/
+h1, h2 {
+  font-size: 1.75rem;      
+  font-weight: bold;   
+  margin: .25rem 0 .5rem; 
+  line-height: 1.5;   
 }
