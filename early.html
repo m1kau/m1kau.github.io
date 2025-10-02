@@ -8,101 +8,106 @@
 </head>
 <body>
   <div class="browser">
-    <!--This nav section acts like my fake browser top bar-->
-    <nav>
-      <div class="tabs">
-        <!--Navigation tabs for different pages-->
-        <a class="tab" href="index.html">Home</a>
-        <a class="tab active" href="early.html">Early Browsers</a>
-        <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
-        <a class="tab" href="concepts.html">Key Concepts</a>
-        <a class="tab" href="references.html">References</a>
-        <a class="tab" href="about.html">About</a>
+    <header>
+      <!--This nav section acts like my fake browser top bar-->
+      <nav>
+        <div class="tabs">
+          <!--Navigation tabs for different pages-->
+          <a class="tab" href="index.html">Home</a>
+          <a class="tab active" href="early.html">Early Browsers</a>
+          <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
+          <a class="tab" href="concepts.html">Key Concepts</a>
+          <a class="tab" href="references.html">References</a>
+          <a class="tab" href="about.html">About</a>
 
-        <!--Dropdown menu for mobile view-->
-        <div class="tab-dropdown">
-          <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
-          <ul class="dropdown-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="early.html">Early Browsers</a></li>
-            <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
-            <li><a href="concepts.html">Key Concepts</a></li>
-            <li><a href="references.html">References</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
+          <!--Dropdown menu for mobile view-->
+          <div class="tab-dropdown">
+            <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="early.html">Early Browsers</a></li>
+              <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
+              <li><a href="concepts.html">Key Concepts</a></li>
+              <li><a href="references.html">References</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+
+          <!--Little colored dots to make it look like a Mac browser window-->
+          <div class="windots">
+            <span class="dot green"></span>
+            <span class="dot yellow"></span>
+            <span class="dot red"></span>
+          </div>
         </div>
 
-        <!--Little colored dots to make it look like a Mac browser window-->
-        <div class="windots">
-          <span class="dot green"></span>
-          <span class="dot yellow"></span>
-          <span class="dot red"></span>
+        <!--Toolbar section: fake back, forward, and reload buttons-->
+        <div class="toolbar" role="toolbar">
+          <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
+          <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
+          <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
+          <!--Searchbox is just a placeholder here, not a real search-->
+          <div class="searchbox"><p>https://m1kau.github.io/early.html</p></div>
         </div>
-      </div>
-
-      <!--Toolbar section: fake back, forward, and reload buttons-->
-      <div class="toolbar">
-        <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
-        <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
-        <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
-        <!--Searchbox is just a placeholder here, not a real search-->
-        <div class="searchbox"><p>https://m1kau.github.io/early.html</p></div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <!--Main content-->
     <main id="main">
       <h1>Early Browsers</h1>
 
       <!--Info about WorldWideWeb Browser-->
-      <h1>WorldWideWeb (Nexus), 1990</h1>
+      <h2>WorldWideWeb (Nexus), 1990</h2>
         <div class="images">
           <img src="css/images/nexus.png" alt="WorldWideWeb/Nexus"/>
-            <ul>
+            <div>
               <p>
                 Tim Berners-Lee created the first web browser at CERN in 1990. He first called it
                 WorldWideWeb and later renamed it Nexus. It showed documents and links, and it
                 could even edit pages inside the browser. It only ran on NeXT computers and felt slow compared to
                 today, but it proved the basic idea of using URLs, HTML, and HTTP to share information.
-              </p>
-                <p>- First browser and editor</p>
-                <p>- Used early web pieces: URL, HTML, HTTP</p>
-                <p>- NeXTSTEP computers only</p>
-          </ul>
+            <ul>
+              <li>First browser and editor</li>
+              <li>Used early web pieces: URL, HTML, HTTP</li>
+              <li>NeXTSTEP computers only</li>
+            </ul>
+          </div>
         </div>
 
       <!--Info about Mosiac Browser-->
-      <h1>NCSA Mosaic, 1993</h1>
+      <h2>NCSA Mosaic, 1993</h2>
         <div class="images">
           <img src="css/images/mosaic.png" alt="NCSA Mosaic"/>
-            <ul>
+            <div>
               <p>
                 In 1993 the team at NCSA released Mosaic. It ran on Windows, Mac, and Unix, installed easily,
                 and most importantly showed pictures inline with the text. That change made the web feel
                 alive and helped non-experts use it. Mosaic added familiar buttons, bookmarks, and a clear layout,
                 which is why many people called it the web's first “killer app.”
-              </p>
-                <p>- Inline images with text</p>
-                <p>- Simple toolbar and bookmarks</p>
-                <p>- Crossplatform (Windows/Mac/Unix)</p>
-          </ul>
+            <ul>
+              <li>Inline images with text</li>
+              <li>Simple toolbar and bookmarks</li>
+              <li>Crossplatform (Windows/Mac/Unix)</li>
+            </ul>
+          </div>
         </div>  
 
       <!--Info about Netscape Browser-->
-      <h1>Netscape Navigator, 1994</h1>
+      <h2>Netscape Navigator, 1994</h2>
         <div class="images">
           <img src="css/images/netscape.png" alt="Netscape Navigator"/>
-            <ul>
+            <div>
               <p>
                 After leaving NCSA, Marc Andreessen helped start Netscape. Navigator arrived in 1994 and quickly
                 became the leading browser. It felt fast and polished and brought new ideas to the web. Netscape
                 created JavaScript in 1995 so pages could be interactive, and for a while Navigator was the default
                 choice for most users online.
-              </p>
-                <p>- Performance and polish</p>
-                <p>- Introduced JavaScript (1995)</p>
-                <p>- Dominant mid 90s browser</p>
-          </ul>
+              <ul>
+                <li>Performance and polish</li>
+                <li>Introduced JavaScript (1995)</li>
+                <li>Dominant mid 90s browser</li>
+            </ul>
+          </div>
         </div> 
     </main>
 	
