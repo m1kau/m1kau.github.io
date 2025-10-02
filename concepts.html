@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Key Concepts: The History and Evolution of Web Browsers</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="browser">
+    <!--This nav section acts like my fake browser top bar-->
+    <nav>
+      <div class="tabs">
+        <!--Navigation tabs for different pages-->
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="early.html">Early Browsers</a>
+        <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
+        <a class="tab active" href="concepts.html">Key Concepts</a>
+        <a class="tab" href="references.html">References</a>
+        <a class="tab" href="about.html">About</a>
+
+        <!--Dropdown menu for mobile view-->
+        <div class="tab-dropdown">
+          <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="early.html">Early Browsers</a></li>
+            <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <!--Little colored dots to make it look like a Mac browser window-->
+        <div class="windots">
+          <span class="dot green"></span>
+          <span class="dot yellow"></span>
+          <span class="dot red"></span>
+        </div>
+      </div>
+
+      <!--Toolbar section: fake back, forward, and reload buttons-->
+      <div class="toolbar">
+        <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
+        <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
+        <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
+        <!--Searchbox is just a placeholder here, not a real search-->
+        <div class="searchbox"><p>concepts</p></div>
+      </div>
+    </nav>
+
+    <!--Main content-->
+    <main id="main">
+      <h1>Key Concepts</h1>
+        <h2>
+            These core ideas explain how browsers find, fetch, interpret, and display the web.
+        </h2>
+
+      <h1>URL (Uniform Resource Locator)</h1>
+        <p>
+            A URL is the address for anything on the web. It tells the browser what protocol to use, which host to contact,
+            and which resource to request.
+        </p>
+        <p>- Protocol: https:// vs http:// (security + transport)</p>
+        <p>- Host: domain or IP (e.g., example.com)</p>
+        <p>- Path &amp; query: which file or API and optional parameters</p>
+
+      <h1>HTTP / HTTPS</h1>
+        <p>
+            HTTP is the request response language of the web. HTTPS is HTTP with encryption and identity verification, which
+            protects data from eavesdropping and tampering.
+        </p>
+        <p>- Request/Response: browser asks, server answers (status codes like 200, 404)</p>
+        <p>- HTTPS: TLS encryption + certificates for trust</p>
+        <p>- Modern features: HTTP/2 multiplexing and HTTP/3 over QUIC</p>
+
+      <h1>HTML (Structure)</h1>
+        <p>
+            HTML defines the structure and meaning of content: headings, paragraphs, links, images, sections, tables, and more.
+        </p>
+        <p>- Semantic tags: &lt;header&gt;, &lt;main&gt;, &lt;article&gt;</p>
+        <p>- Accessibility: proper structure helps screen readers</p>
+        <p>- DOM: browsers parse HTML into a live document tree</p>
+
+      <h1>CSS (Presentation)</h1>
+        <p>
+            CSS controls the look and layout: colors, fonts, spacing, and responsive design. It lets the same HTML adapt to
+            phones, tablets, and desktops.
+        </p>
+        <p>- Selectors: target elements by tag, class, id, state</p>
+        <p>- Layout: Flexbox and Grid for modern page structure</p>
+        <p>- Responsive: media queries adjust designs at breakpoints</p>
+
+      <h1>JavaScript (Behavior)</h1>
+        <p>
+            JavaScript adds interactivity and app-like behavior. It can read and change the DOM, respond to events, and talk to servers.
+        </p>
+        <p>- DOM APIs: manipulate content and styles dynamically</p>
+        <p>- Events: clicks, input, network results drive UI updates</p>
+        <p>- Modules &amp; fetch: structure code and load data</p>
+
+      <h1>Rendering Engine &amp; JS Engine</h1>
+        <p>
+            The rendering engine turns HTML/CSS into pixels, while the JavaScript engine executes code that powers interactivity.
+        </p>
+        <p>- Pipeline: parse → style → layout → paint → composite</p>
+        <p>- Engines: Blink/WebKit (rendering), V8/SpiderMonkey (JS)</p>
+        <p>- Performance: minimizing reflow/repaint keeps pages smooth</p>
+
+      <h1>Process Model &amp; Sandboxing</h1>
+        <p>
+            Modern browsers isolate tabs and sites into separate processes. This boosts stability and security—one crash or
+            malicious page won't take down everything.
+        </p>
+        <p>- Isolation: per-tab or per-site processes</p>
+        <p>- Sandbox: limits what web content can access</p>
+        <p>- Stability: a bad tab doesn't crash the whole browser</p>
+
+      <h1>WebAssembly (Wasm)</h1>
+        <p>
+            WebAssembly lets browsers run compiled code at near-native speed. It powers heavy apps like video editors and games,
+            alongside JavaScript.
+        </p>
+        <p>- Performance: fast, compact binary format</p>
+        <p>- Interop: works with JS and the web platform</p>
+        <p>- Use cases: compute-intensive apps directly in the browser</p>
+    </main>
+
+    <!--Footer-->
+    <footer>
+      <p>This is my project 1 milestone for IT 3203. <a href="https://ksuweb.github.io/IT3203/">Course site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
