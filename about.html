@@ -1,1 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About: The History and Evolution of Web Browsers</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="browser">
+    <!--This nav section acts like my fake browser top bar-->
+    <nav>
+      <div class="tabs">
+        <!--Navigation tabs for different pages-->
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="early.html">Early Browsers</a>
+        <a class="tab" href="wars-modern.html">Browser Wars & Modern</a>
+        <a class="tab" href="concepts.html">Key Concepts</a>
+        <a class="tab" href="references.html">References</a>
+        <a class="tab active" href="about.html">About</a>
+
+        <!--Dropdown menu for mobile view-->
+        <div class="tab-dropdown">
+          <button class="tab dropdown-tab" type="button" aria-haspopup="true" aria-expanded="false">▼</button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="early.html">Early Browsers</a></li>
+            <li><a href="wars-modern.html">Browser Wars & Modern</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <!--Little colored dots to make it look like a Mac browser window-->
+        <div class="windots">
+          <span class="dot green"></span>
+          <span class="dot yellow"></span>
+          <span class="dot red"></span>
+        </div>
+      </div>
+
+      <!--Toolbar section: fake back, forward, and reload buttons-->
+      <div class="toolbar">
+        <button class="buttons btn--back"    aria-label="Back"    title="Back"></button>
+        <button class="buttons btn--forward" aria-label="Forward" title="Forward"></button>
+        <button class="buttons btn--reload"  aria-label="Reload"  title="Reload"></button>
+        <!--Searchbox is just a placeholder here, not a real search-->
+        <div class="searchbox"><p>about</p></div>
+      </div>
+    </nav>
+
+    <!--Main content-->
+    <main id="main">
+      <h1>About This Project</h1>
+        <p>
+            This website was created as part of my <strong>IT 3203 Web Development</strong> class project at Kennesaw State University. 
+            The project explores the history and evolution of web browsers, from Tim Berners-Lee's WorldWideWeb to today's modern Chromium-based browsers.
+        </p>
+
+      <h1>About Me</h1>
+        <p>
+            My name is Kaleb Hernandez. I am currently a student studying IT at KSU. 
+            I enjoy learning about how the web works, especially the technologies that shaped today's internet.
+        </p>
+
+      <h1>Contact</h1>
+        <p>
+            You can reach me at 
+            <a href="mailto:kherna52@students.kennesaw.edu">kherna52@students.kennesaw.edu</a> 
+            for questions about this project.  
+        </p>
+    </main>
+
+    <!--Footer-->
+    <footer>
+      <p>This is my project 1 milestone for IT 3203. <a href="https://ksuweb.github.io/IT3203/">Course site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
 
