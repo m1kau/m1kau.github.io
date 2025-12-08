@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Load saved preference, otherwise use system preference.
+    // Load saved preference, otherwise default to light theme.
     const saved = localStorage.getItem(key);
-    const initial = (saved === 'dark') || (saved === null && prefersDark);
+    const initial = (saved === 'dark');
     applyDark(!!initial);
     updateToggleIcon(!!initial);
 
