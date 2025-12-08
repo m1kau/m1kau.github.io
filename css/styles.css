@@ -1,24 +1,67 @@
 :root{
   /*My main color palette and effects stored as CSS variables*/
   --ink: #111827;
+  --icon: #111827;
   --bg-app: #e5e7eb;
   --bg-panel: #f9f9f9;
+  --surface: #ffffff;
   --border: #d1d5db;
   --accent-red: #ff5f57;
   --accent-yellow: #febc2e;
   --accent-green: #28c840;
+  --muted: #6b7280; 
+  --link: #1d4ed8; 
+  --primary: #2563eb; 
+  --on-primary: #ffffff;
+  --primary-hover: #1d4ed8;
+  --input-bg: #ffffff;
+  --input-color: var(--ink);
   --shadow-outer: 0 6px 20px rgba(0,0,0,.10);
   --shadow-img: 0 6px 20px rgba(0,0,0,.20);
   --focus-ring: 0 0 0 3px rgba(37,99,235,.4);
 }
 
-* { box-sizing: border-box; } /*Sizing fix so padding/borders don’t break layouts*/
+/* Dark theme overrides when body has the .dark class (script toggles on <body>) */
+body.dark {
+  --ink: #e6eef8;
+  --icon: #e6eef8;
+  --bg-app: #2B2B2B;
+  --bg-panel: #3C3C3C;
+  --surface: #2B2B2B;
+  --border: rgba(255,255,255,0.06);
+  --accent-red: #ff6b6b;
+  --accent-yellow: #f6c85f;
+  --accent-green: #34d399;
+  --muted: #9ca3af;
+  --link: #bfdbfe;
+  --primary: #60a5fa;
+  --on-primary: #0b1220;
+  --primary-hover: #2563eb; 
+  --input-bg: #2B2B2B; 
+  --input-color: #ffffff;
+  --shadow-outer: 0 8px 24px rgba(0,0,0,.45);
+  --shadow-img: 0 8px 24px rgba(0,0,0,.55);
+  --focus-ring: 0 0 0 3px rgba(99,102,241,.15);
+}
+
+/* Global link color follows theme variable so page links (like references) adapt */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color .12s ease, text-decoration .12s ease;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+* { box-sizing: border-box; } 
 
 body {
   /*Body text and background*/
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
   background: var(--bg-app);
+  color: var(--ink);
 }
 
 .browser{
@@ -26,7 +69,7 @@ body {
   width: 98%;
   max-width: 1400px;
   margin: 30px auto;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: var(--shadow-outer);
@@ -94,6 +137,14 @@ body {
   z-index: 3;
 }
 
+/* Tabs are navigation UI — never show underline on hover (global a:hover may add it) */
+.tab,
+.tab:hover,
+.tab:focus,
+.tab:active {
+  text-decoration: none;
+}
+
 .tab-dropdown { display: none; } /*Dropdown only shows up on small screens*/
 
 /*Toolbar row with back, forward, reload, and fake search bar*/
@@ -114,7 +165,7 @@ body {
   height: 25px;
   background: transparent;
   border: 0;
-  color: var(--ink);
+  color: var(--icon);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -131,6 +182,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 15px 15px;
+  color: var(--icon);
 }
 .toolbar .buttons:hover{
   background-color: var(--bg-app);
@@ -146,9 +198,22 @@ body {
 }
 
 /*SVG icons for back/forward/reload*/
-.btn--back{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 5l-7 7 7 7'/></svg>");}
-.btn--forward{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>");}
-.btn--reload{background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12a9 9 0 1 1-2.64-6.36'/><path d='M21 3v6h-6'/></svg>");}
+.btn--back,
+.btn--forward,
+.btn--reload { background-image: none; }
+
+/* Inline SVG inside toolbar buttons should size and inherit color */
+.toolbar .buttons svg{
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.toolbar .buttons svg path,
+.toolbar .buttons svg circle,
+.toolbar .buttons svg line{
+  stroke: currentColor;
+  fill: none;
+}
 
 /*Fake search/address bar*/
 .searchbox{
@@ -167,7 +232,7 @@ h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
 
 
 
-/*Image and text section (I need to rework this completely. I am not happy with how everything turned out*/
+/*Image and text section*/
 .images {
   display: flex;
   align-items: flex-start;
@@ -175,7 +240,9 @@ h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
 }
 .images img {
   background: transparent;
-  max-width: 20%;
+   width: 300px;       /* pick the size you prefer */
+  height: auto;
+  flex-shrink: 0; 
   height: auto;
   border-radius: 8px;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,.10));
@@ -196,16 +263,36 @@ h1{ font-size: 1.35rem; margin: .25rem 0 .5rem; }
 /*Footer section*/
 footer{
   border-top: 1px solid var(--border);
-  padding: 0 1rem;
-  background: #fff;
-  color: #6b7280;
+  padding: .5rem 1rem;
+  background: var(--surface);
+  color: var(--muted);
   font-size: .95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
-footer a{ color: #0000ff; text-decoration: none; }
+footer a{ color: var(--link); text-decoration: none; }
 footer a:hover{ text-decoration: underline; }
 
 /*Responsive tweaks for mobile (small screens)*/
 @media (max-width: 640px) {
+  
+  /* Circle hover effect for dropdown tab (mobile) */
+.tabs .dropdown-tab:hover {
+  background-color: var(--bg-panel);
+  border-radius: 9999px; /* makes it perfectly round */
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.tabs .dropdown-tab {
+  transition: background-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+
+.tabs .dropdown-tab:active {
+  transform: translateY(1px);
+}
 
   .tabs .tab { display: none; } /*Hide tabs by default*/
   .tabs .tab.active { display: block; } /*Only show active tab*/
@@ -226,31 +313,27 @@ footer a:hover{ text-decoration: underline; }
   .tabs .dropdown-tab {
     /*Dropdown button look*/
     display: inline-flex;
-    border: 1px solid var(--border);
     align-items: center;
     justify-content: center;
-    padding: 9px 10px;
+    padding: 6px 7px;
     font-size: 1rem;
     cursor: pointer;
-    background: var(--bg-panel);
-    border: 1px solid var(--border);
-    border-bottom: 0;
-    margin-bottom: -1px;  
+    border: 1px solid var(--bg-app);
   }
 
   .dropdown-menu {
     /*Menu pops out on hover/tap*/
+	left: -8px;
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: var(--bg-panel);
     border: 1px solid var(--border);
-    border-top: 0;
-    border-radius: 0 10px 10px 10px;
+    border-radius: 0px 0px 20px 20px;
     list-style: none;
     margin: 0;
-    padding: 4px 0;
+    padding: 4px 4px;
     min-width: 180px;
     box-shadow: var(--shadow-outer);
     z-index: 10;
@@ -264,7 +347,58 @@ footer a:hover{ text-decoration: underline; }
     color: var(--ink);
     white-space: nowrap;
   }
-  .dropdown-menu li a:hover { background: var(--bg-app); }
+  
+  .menu-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+  fill: var(--ink);
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+
+/*svg icon style*/
+.dropdown-menu li a::before {
+  font-family: "bootstrap-icons";
+  font-size: 14px;
+  margin-right: 10px;
+  vertical-align: center;
+  display: inline-block;
+}
+
+/*SVG ICONS FOR DROP DOWN*/
+
+/* Home*/
+.dropdown-menu li:nth-child(1) a::before {
+  content: "\F425";
+}
+/* Early Browsers*/
+.dropdown-menu li:nth-child(2) a::before {
+  content: "\F421";
+}
+/* Browser Wars*/
+.dropdown-menu li:nth-child(3) a::before {
+  content: "\F882";
+}
+/* Key Concepts*/
+.dropdown-menu li:nth-child(4) a::before {
+  content: "\F46B";
+}
+/* Quiz*/
+.dropdown-menu li:nth-child(5) a::before {
+  content: "\F733";
+}
+/* References*/
+.dropdown-menu li:nth-child(6) a::before {
+  content: "\F194";
+}
+/* About*/
+.dropdown-menu li:nth-child(7) a::before {
+  content: "\F4E1";
+}
+
+  .dropdown-menu li a:hover { background: var(--bg-app); border-radius: 100px 100px 100px 100px;}
 
   .tab-dropdown:hover .dropdown-menu,
   .tab-dropdown:focus-within .dropdown-menu {
@@ -313,11 +447,11 @@ h1, h2 {
 
 .timeline-table th,
 .timeline-table td {
-  border: 1px solid #000;
+  border: 1px solid var(--border);
   padding: 6px;
 }
 
-/*Quiz page stuff*/
+/*Quiz page stuff-----------------------------------------------------------------------*/ 
 
 #quizForm {
   background: var(--bg-panel);
@@ -367,6 +501,12 @@ h1, h2 {
   border: 1px solid var(--border);
   border-radius: 6px;
   margin-top: .5rem;
+  background: var(--input-bg);
+  color: var(--input-color);
+}
+
+#quizForm input[type="text"]::placeholder {
+  color: var(--muted);
 }
 
 #quizForm input[type="radio"],
@@ -378,8 +518,8 @@ h1, h2 {
 #quizForm .buttons {
   all: unset;
   display: inline-block;
-  background: #2563eb;
-  color: #fff;
+  background: var(--primary);
+  color: var(--on-primary);
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 8px;
@@ -389,12 +529,12 @@ h1, h2 {
   margin-top: 0.75rem;
 }
 
-#quizForm .buttons:hover { background: #1d4ed8; }
+#quizForm .buttons:hover { background: var(--primary-hover); }
 #quizForm .buttons:active { transform: scale(0.98); }
 
 /* Results panel */
 #results {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem;
@@ -410,14 +550,14 @@ h1, h2 {
 }
 #results p { margin: .25rem 0; }
 
-.correct { color: green; }
-.incorrect { color: red; }
+#results .correct { color: var(--accent-green); }
+#results .incorrect { color: var(--accent-red); }
 
 #results .buttons {
   all: unset;
   display: inline-block;
-  background: #2563eb;
-  color: white;
+  background: var(--primary);
+  color: var(--on-primary);
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 8px;
@@ -427,24 +567,24 @@ h1, h2 {
   transition: background-color .2s ease, transform .05s ease;
 }
 
-#results .buttons:hover { background: #1d4ed8; }
+#results .buttons:hover { background: color-mix(in srgb, var(--primary) 80%, black); }
 #results .buttons:active { transform: scale(0.97); }
 
 .result-correct {
-  color: green;
+  color: var(--accent-green);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .result-wrong {
-  color: red;
+  color: var(--accent-red);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .answer-block {
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
   padding: 0.75rem;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -463,7 +603,7 @@ h1, h2 {
 #progressBar {
   height: 100%;
   width: 0%;
-  background: #2563eb;
+  background: var(--primary);
   transition: width 0.3s ease;
 }
 
@@ -472,4 +612,6 @@ h1, h2 {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/*Quiz page stuff END-----------------------------------------------------------------------*/ 
 
